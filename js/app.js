@@ -1,3 +1,28 @@
+const env = {
+  BASE_ID: "apppMh1aYCTA6ZTgA",
+  TABLE_NAME: "Blog",
+  API_KEY: "key0KTCwaChVT2u0x",
+};
+
+const BASE_ID = env.BASE_ID;
+const TABLE_NAME = env.TABLE_NAME;
+const apiKey = env.API_KEY;
+
+const tableUrl = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+const headers = {
+  Authorization: `Bearer ${apiKey}`,
+  "Content-Type": "application/json",
+};
+
+const fetchBlogPosts = async () => {
+  const response = await fetch(tableUrl, { headers: headers });
+  const results = await response.json();
+  console.log(results);
+  return results;
+};
+
+fetchBlogPosts();
+
 /*
 ============================================
 Constants
