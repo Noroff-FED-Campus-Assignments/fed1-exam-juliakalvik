@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Telex&display=swap");
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  font-family: "Telex", sans-serif;
+  color: #1e1e1e;
+  font-size: 1.3rem;
+}
+
+a:hover {
+  color: #6b8053;
+  text-decoration: underline;
+}
+
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-evenly;
+}
