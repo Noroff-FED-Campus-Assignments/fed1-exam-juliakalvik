@@ -68,3 +68,13 @@
   flex-direction: column;
   align-items: center;
 }
+
+.instagram {
+  display: flex;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.socials-text {
+  text-align: center;
+}
