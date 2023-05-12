@@ -1,12 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Telex&display=swap");
 
-body,
-html {
-  margin: 0;
-  scroll-behavior: smooth;
-}
-
 .carousel {
   background-image: url("../images/CAROUSEL1resize.png");
   background-color: #cccccc;
@@ -16,15 +10,6 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;
-}
-
-h1 {
-  color: #ffffff;
-  font-family: "Tenor Sans", sans-serif;
-  font-size: 2.5rem;
-  display: flex;
-  justify-content: center;
-  letter-spacing: 0.5rem;
 }
 
 .intro-section {
@@ -43,23 +28,6 @@ h1 {
 .portrait {
   width: 400px;
   margin-top: 2rem;
-}
-
-h2,
-h3 {
-  font-family: "Tenor Sans", sans-serif;
-  letter-spacing: 0.2rem;
-}
-
-p {
-  font-family: "Telex";
-  font-size: 0.9rem;
-  line-height: 1.2rem;
-}
-
-hr {
-  margin-top: 4rem;
-  width: 40rem;
 }
 
 .latest-blogposts {
@@ -93,12 +61,6 @@ hr {
 
 .timeline-imgs > img {
   width: 280px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .socials {
