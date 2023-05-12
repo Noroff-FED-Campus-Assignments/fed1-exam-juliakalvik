@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Telex&display=swap");
 
+body,
+html {
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
 .carousel {
   background-image: url("../images/CAROUSEL1resize.png");
   background-color: #cccccc;
@@ -42,6 +48,7 @@ h1 {
 h2,
 h3 {
   font-family: "Tenor Sans", sans-serif;
+  letter-spacing: 0.2rem;
 }
 
 p {

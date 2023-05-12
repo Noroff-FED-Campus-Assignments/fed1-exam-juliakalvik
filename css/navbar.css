@@ -19,7 +19,24 @@ li {
   text-decoration: none;
 }
 
+.logo {
+  width: 5rem;
+  margin: ;
+}
+
+img:hover {
+  background-color: #6b8053;
+}
+
 .nav-menu {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  padding-left: 0px;
+}
+
+.navbar {
+  position: fixed;
+  background-color: #ffffff;
+  width: 100%;
 }
