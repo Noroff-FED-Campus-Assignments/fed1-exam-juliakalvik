@@ -1,0 +1,99 @@
+.header-img {
+  background-image: url("../images/ContactHeader.png");
+  background-color: #cccccc;
+  padding-top: 300px;
+  padding-bottom: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
+.contactform-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+}
+
+input,
+select,
+textarea {
+  width: 300px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  font-family: "Tenor Sans", sans-serif;
+  cursor: pointer;
+  padding: 1.2rem;
+  width: 8rem;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 0.3rem;
+}
+
+input[type="submit"]:hover {
+  background-color: #6b8053;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-family: "Telex";
+}
+
+.form-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.location > img {
+  width: 40px;
+  height: 50px;
+}
+
+.phone > img {
+  width: 40px;
+  height: 40px;
+}
+
+.envelope > img {
+  width: 55px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  border-style: groove;
+  border-radius: 5px;
+  padding: 10px;
+  align-items: center;
+  height: 452px;
+}
+
+.location,
+.phone,
+.envelope {
+  display: flex;
+  width: 300px;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.latest-blogposts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

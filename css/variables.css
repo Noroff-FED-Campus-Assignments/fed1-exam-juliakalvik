@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Telex&display=swap");
+
 body,
 html {
   margin: 0;
@@ -13,6 +16,11 @@ button {
   text-align: center;
   background-color: transparent;
   border-radius: 0.3rem;
+}
+
+button:hover {
+  background-color: #6b8053;
+  color: #ffffff;
 }
 
 h1 {
