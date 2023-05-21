@@ -54,6 +54,11 @@
   gap: 1rem;
 }
 
+.phone,
+.envelope {
+  margin-left: 8px;
+}
+
 .camera > img {
   width: 50px;
 }

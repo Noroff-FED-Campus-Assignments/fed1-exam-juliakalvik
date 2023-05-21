@@ -76,12 +76,18 @@ form {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  border-style: groove;
+  /*border-style: groove;*/
   border-radius: 5px;
   padding: 10px;
   align-items: center;
   height: 452px;
+  background-color: #6b805380;
 }
+
+/*.contact-info > h2,
+p {
+  color: #fff;
+}*/
 
 .location,
 .phone,
