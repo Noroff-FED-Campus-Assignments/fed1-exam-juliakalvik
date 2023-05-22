@@ -6,10 +6,38 @@ p {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
 }
 
 .blogposts-full-list {
   display: flex;
   justify-content: center;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.post {
+  background-color: #6b8053;
+  color: #fff;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+}
+
+.post img {
+  width: 300px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.post p {
+  padding: 15px;
+  font-size: 10px;
+  line-height: 16px;
 }

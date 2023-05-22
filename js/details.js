@@ -1,46 +1,48 @@
-/*
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L66
-============================================
-*/
+const env = {
+  BASE_ID: "apppMh1aYCTA6ZTgA",
+  TABLE_NAME: "Blog",
+  API_KEY: "key0KTCwaChVT2u0x",
+};
 
-// TODO: Get DOM elements from the DOM
+const BASE_ID = env.BASE_ID;
+const TABLE_NAME = env.TABLE_NAME;
+const apiKey = env.API_KEY;
 
-// TODO: Get the query parameter from the URL
+const tableUrl = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+const headers = {
+  Authorization: `Bearer ${apiKey}`,
+  "Content-Type": "application/json",
+};
 
-// TODO: Get the id from the query parameter
+const urlParams = new URLSearchParams(window.location.search);
+const postId = urlParams.get("id");
 
-// TODO: Create a new URL with the id @example: https://www.youtube.com/shorts/ps7EkRaRMzs
+// ...
 
-/*
-============================================
-DOM manipulation
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L89
-============================================
-*/
+// Function to fetch and display the blog post
+const fetchBlogPost = async () => {
+  try {
+    const response = await fetch(`${tableUrl}/${postId}`, { headers: headers });
+    const post = await response.json();
 
-// TODO: Fetch and Render the list to the DOM
+    const blogpostTitleElement = document.getElementById("blogpost-title");
+    const blogpostContentElement = document.getElementById("blogpost-content");
+    const blogpostPhotoElement = document.getElementById("blogpost-photo");
 
-// TODO: Create event listeners for the filters and the search
+    blogpostTitleElement.textContent = post.fields.Title;
+    blogpostContentElement.textContent = post.fields.Text;
 
-/*
-============================================
-Data fectching
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L104
-============================================
-*/
+    if (post.fields.Photo && Array.isArray(post.fields.Photo)) {
+      const photoUrl = post.fields.Photo[0].thumbnails.full.url;
+      blogpostPhotoElement.src = photoUrl;
+      blogpostTitleContainer.style.backgroundImage = `url('${photoUrl}')`;
+    } else {
+      blogpostPhotoElement.style.display = "none"; // Hide the photo element if no photo is available
+      blogpostTitleContainer.style.backgroundImage = "none";
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-// TODO: Fetch an a single of objects from the API
-
-/*
-============================================
-Helper functions
-============================================
-*/
-
-/**
- * TODO: Create a function to create a DOM element.
- * @example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/src/js/detail.js#L36
- * @param {item} item The object with properties from the fetched JSON data.
- */
+fetchBlogPost();

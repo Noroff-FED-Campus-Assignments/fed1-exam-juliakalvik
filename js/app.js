@@ -14,6 +14,65 @@ const headers = {
   "Content-Type": "application/json",
 };
 
+const truncateText = (text, limit) => {
+  const words = text.split(" ");
+  const truncated = words.slice(0, limit).join(" ");
+  return words.length > limit ? `${truncated}...` : truncated;
+};
+
+const fetchBlogPosts = async () => {
+  try {
+    const response = await fetch(tableUrl, { headers: headers });
+    const results = await response.json();
+    console.log(results);
+
+    const fetchedPostsElement = document.getElementById("fetched-posts-full");
+    fetchedPostsElement.innerHTML = "";
+
+    results.records.forEach((post) => {
+      const postElement = document.createElement("div");
+      const photoUrl =
+        post.fields.Photo && Array.isArray(post.fields.Photo)
+          ? post.fields.Photo[0].thumbnails.full.url
+          : "";
+      postElement.classList.add("post");
+
+      const truncatedText = truncateText(post.fields.Text || "", 15);
+
+      postElement.addEventListener("click", () => {
+        const postId = post.id;
+        window.location.href = `blogpost.html?id=${postId}`;
+      });
+
+      if (post.fields.Title) {
+        const titleElement = document.createElement("h2");
+        titleElement.textContent = post.fields.Title;
+        postElement.appendChild(titleElement);
+      }
+
+      if (truncatedText) {
+        const textElement = document.createElement("p");
+        textElement.textContent = truncatedText;
+        postElement.appendChild(textElement);
+      }
+
+      if (photoUrl) {
+        const imageElement = document.createElement("img");
+        imageElement.src = photoUrl;
+        imageElement.alt = "Post Image";
+        postElement.appendChild(imageElement);
+      }
+
+      fetchedPostsElement.appendChild(postElement);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+window.addEventListener("DOMContentLoaded", fetchBlogPosts);
+
+/*
 const fetchBlogPosts = async () => {
   const response = await fetch(tableUrl, { headers: headers });
   const results = await response.json();
@@ -22,8 +81,6 @@ const fetchBlogPosts = async () => {
 };
 
 fetchBlogPosts();
-
-/*
 ============================================
 Constants
 @example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L66
