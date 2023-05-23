@@ -9,10 +9,10 @@ p {
 }
 
 .blogposts-full-list {
+  display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  flex-direction: column;
-  background-color: red;
 }
 
 h2 {
@@ -39,7 +39,11 @@ h2 {
 }
 
 .post p {
-  padding: 15px;
-  font-size: 10px;
-  line-height: 16px;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.fetched-posts-full {
+  display: flex;
 }

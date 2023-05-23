@@ -37,7 +37,7 @@ const fetchBlogPosts = async () => {
           : "";
       postElement.classList.add("post");
 
-      const truncatedText = truncateText(post.fields.Text || "", 15);
+      const truncatedText = truncateText(post.fields.Text || "", 10);
 
       postElement.addEventListener("click", () => {
         const postId = post.id;
