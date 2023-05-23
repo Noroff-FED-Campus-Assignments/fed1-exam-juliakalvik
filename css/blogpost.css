@@ -24,9 +24,27 @@
   padding-left: 5rem;
   padding-right: 5rem;
   padding-top: 2rem;
+  padding-bottom: 2rem;
   flex-direction: column;
   column-count: 2;
   flex-wrap: wrap;
   column-width: 200px;
   column-gap: 80px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.blogpost-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 500px;
 }

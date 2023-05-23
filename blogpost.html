@@ -40,11 +40,21 @@
       <section class="blogpost">
         <div class="blogpost-content">
           <h2 id="blogpost-title"></h2>
-          <img id="blogpost-photo" alt="Post Image" />
+          <img id="blogpost-photo" alt="Post header image" />
           <p id="blogpost-content"></p>
+          <div id="blogpost-gallery" class="gallery"></div>
         </div>
       </section>
     </main>
+    <form id="comment-form">
+      <input type="text" id="comment-name" placeholder="Your Name" required />
+      <textarea
+        id="comment-content"
+        placeholder="Your Comment"
+        required
+      ></textarea>
+      <button type="submit">Submit</button>
+    </form>
 
     <section class="blogposts-full-list">
       <div id="fetched-posts-full"></div>

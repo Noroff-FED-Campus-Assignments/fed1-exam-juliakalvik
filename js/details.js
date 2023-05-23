@@ -17,28 +17,49 @@ const headers = {
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
 
-// ...
-
-// Function to fetch and display the blog post
 const fetchBlogPost = async () => {
   try {
     const response = await fetch(`${tableUrl}/${postId}`, { headers: headers });
     const post = await response.json();
 
+    console.log("Post:", post);
+
     const blogpostTitleElement = document.getElementById("blogpost-title");
     const blogpostContentElement = document.getElementById("blogpost-content");
     const blogpostPhotoElement = document.getElementById("blogpost-photo");
+    const blogpostGallery = document.getElementById("blogpost-gallery");
 
-    blogpostTitleElement.textContent = post.fields.Title;
-    blogpostContentElement.textContent = post.fields.Text;
+    blogpostTitleElement.textContent = post.fields["Title"];
+    blogpostContentElement.textContent = post.fields["Text"];
 
-    if (post.fields.Photo && Array.isArray(post.fields.Photo)) {
-      const photoUrl = post.fields.Photo[0].thumbnails.full.url;
+    if (post.fields["Photo"] && Array.isArray(post.fields["Photo"])) {
+      const photoUrl = post.fields["Photo"][0].thumbnails.full.url;
+
+      console.log("Photo URL:", photoUrl);
+
       blogpostPhotoElement.src = photoUrl;
-      blogpostTitleContainer.style.backgroundImage = `url('${photoUrl}')`;
+      blogpostPhotoElement.style.display = "block";
     } else {
-      blogpostPhotoElement.style.display = "none"; // Hide the photo element if no photo is available
-      blogpostTitleContainer.style.backgroundImage = "none";
+      blogpostPhotoElement.style.display = "none";
+    }
+
+    if (post.fields["Gallery"] && Array.isArray(post.fields["Gallery"])) {
+      const galleryPhotos = post.fields["Gallery"];
+
+      console.log("Gallery Photos:", galleryPhotos);
+
+      blogpostGallery.innerHTML = "";
+
+      for (const photo of galleryPhotos) {
+        const imgElement = document.createElement("img");
+        imgElement.src = photo.thumbnails.full.url;
+        imgElement.alt = "Gallery Photo";
+        imgElement.classList.add("gallery-photo");
+
+        blogpostGallery.appendChild(imgElement);
+      }
+    } else {
+      blogpostGallery.innerHTML = "";
     }
   } catch (error) {
     console.error(error);
