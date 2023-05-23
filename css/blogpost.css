@@ -48,3 +48,15 @@
 .gallery img {
   width: 500px;
 }
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.comments-h2 {
+  margin-top: 50px;
+}

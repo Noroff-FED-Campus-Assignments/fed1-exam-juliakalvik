@@ -67,3 +67,34 @@ const fetchBlogPost = async () => {
 };
 
 fetchBlogPost();
+
+const commentForm = document.getElementById("comment-form");
+const commentsList = document.getElementById("comments-list");
+
+commentForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("comment-name").value;
+  const content = document.getElementById("comment-content").value;
+
+  const comment = {
+    name,
+    content,
+  };
+
+  addComment(comment);
+
+  commentForm.reset();
+});
+
+function addComment(comment) {
+  const commentElement = document.createElement("div");
+  commentElement.classList.add("comment");
+  commentElement.innerHTML = `
+    <h4>${comment.name}</h4>
+    <p>${comment.content}</p>
+    <hr>
+  `;
+
+  commentsList.appendChild(commentElement);
+}

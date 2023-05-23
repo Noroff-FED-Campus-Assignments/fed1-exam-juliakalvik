@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/blogpost.css" />
     <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/contact.css" />
     <script defer src="/js/details.js"></script>
     <title>💍 WEDDING PHOTOGRAPHER</title>
   </head>
@@ -46,18 +47,19 @@
         </div>
       </section>
     </main>
-    <form id="comment-form">
-      <input type="text" id="comment-name" placeholder="Your Name" required />
-      <textarea
-        id="comment-content"
-        placeholder="Your Comment"
-        required
-      ></textarea>
-      <button type="submit">Submit</button>
-    </form>
-
-    <section class="blogposts-full-list">
-      <div id="fetched-posts-full"></div>
+    <hr />
+    <section class="comments">
+      <h2 class="comments-h2">LEAVE A COMMENT BELOW</h2>
+      <form id="comment-form">
+        <input type="text" id="comment-name" placeholder="Your Name" required />
+        <textarea
+          id="comment-content"
+          placeholder="Your Comment"
+          required
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="comments-list"></div>
     </section>
   </body>
 </html>
