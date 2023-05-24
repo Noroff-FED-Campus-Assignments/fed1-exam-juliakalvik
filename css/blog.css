@@ -30,6 +30,7 @@ h2 {
   display: flex;
   flex-direction: column;
   border-radius: 2px;
+  margin: 20px;
 }
 
 .post img {
@@ -44,6 +45,16 @@ h2 {
   line-height: 18px;
 }
 
-.fetched-posts-full {
+#fetched-posts-full {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80vw;
+  align-items: center;
+}
+
+@media screen and (max-width: 1275px) {
+  #fetched-posts-full {
+    width: 100vw;
+  }
 }
