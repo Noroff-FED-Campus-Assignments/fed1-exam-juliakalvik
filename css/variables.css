@@ -16,10 +16,11 @@ button {
   text-align: center;
   background-color: transparent;
   border-radius: 0.3rem;
+  border: 1px solid #ccc;
 }
 
 button:hover {
-  background-color: #6b8053;
+  background-color: #7e896c;
   color: #ffffff;
 }
 

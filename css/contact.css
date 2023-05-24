@@ -41,7 +41,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #6b8053;
+  background-color: #7e896c;
 }
 
 form {
@@ -76,12 +76,11 @@ form {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  /*border-style: groove;*/
   border-radius: 5px;
   padding: 10px;
   align-items: center;
   height: 452px;
-  background-color: #6b805380;
+  background-color: #7e896c80;
 }
 
 /*.contact-info > h2,
