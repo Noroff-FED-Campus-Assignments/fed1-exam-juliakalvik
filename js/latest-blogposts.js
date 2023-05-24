@@ -1,4 +1,4 @@
-/*const env = {
+const env = {
   BASE_ID: "apppMh1aYCTA6ZTgA",
   TABLE_NAME: "Blog",
   API_KEY: "key0KTCwaChVT2u0x",
@@ -14,68 +14,92 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-let blogPosts = []; // Array to store the blog post data
-let currentSlide = 0; // Index of the current slide
+const slider = document.getElementById("slider");
+const sliderWrapper = document.getElementById("slider-wrapper");
+const prevButton = document.getElementById("slider-prev");
+const nextButton = document.getElementById("slider-next");
 
-const fetchLatestBlogPosts = async () => {
+let postItems = [];
+const truncateText = (text, limit) => {
+  const words = text.split(" ");
+  const truncated = words.slice(0, limit).join(" ");
+  return words.length > limit ? `${truncated}...` : truncated;
+};
+
+const fetchBlogPosts = async () => {
   try {
     const response = await fetch(tableUrl, { headers: headers });
-    const data = await response.json();
-    return data.records.map((post) => ({
-      title: post.fields.Title,
-      content: post.fields.Text,
-    }));
+    const results = await response.json();
+    console.log(results);
+
+    postItems = results.records.map((post) => {
+      const postElement = document.createElement("div");
+      const photoUrl =
+        post.fields.Photo && Array.isArray(post.fields.Photo)
+          ? post.fields.Photo[0].thumbnails.full.url
+          : "";
+      postElement.classList.add("post");
+
+      const truncatedText = truncateText(post.fields.Text || "", 10);
+
+      postElement.addEventListener("click", () => {
+        const postId = post.id;
+        window.location.href = `blogpost.html?postId=${postId}`;
+      });
+
+      if (post.fields.Title) {
+        const titleElement = document.createElement("h2");
+        titleElement.textContent = post.fields.Title;
+        postElement.appendChild(titleElement);
+      }
+
+      if (truncatedText) {
+        const textElement = document.createElement("p");
+        textElement.textContent = truncatedText;
+        postElement.appendChild(textElement);
+      }
+
+      if (photoUrl) {
+        const imageElement = document.createElement("img");
+        imageElement.src = photoUrl;
+        imageElement.alt = "Post Image";
+        postElement.appendChild(imageElement);
+      }
+
+      return postElement;
+    });
+
+    renderPosts();
   } catch (error) {
     console.error(error);
-    return [];
   }
 };
 
-const showLatestBlogPosts = async () => {
-  blogPosts = await fetchLatestBlogPosts();
-  showSlide();
+const renderPosts = () => {
+  sliderWrapper.innerHTML = "";
+
+  const visiblePosts = postItems.slice(0, 3);
+  visiblePosts.forEach((post) => {
+    const postWrapper = document.createElement("div");
+    postWrapper.classList.add("slider-item");
+
+    postWrapper.appendChild(post.cloneNode(true));
+    sliderWrapper.appendChild(postWrapper);
+  });
 };
 
-const showSlide = () => {
-  const slider = document.getElementById("slider");
-  slider.innerHTML = ""; // Clear any existing content
+prevButton.addEventListener("click", function () {
+  slider.scrollBy({
+    left: -slider.offsetWidth,
+    behavior: "smooth",
+  });
+});
 
-  const numPosts = blogPosts.length;
-  const startIndex = currentSlide * 4;
-  const endIndex = Math.min(startIndex + 4, numPosts);
+nextButton.addEventListener("click", function () {
+  slider.scrollBy({
+    left: slider.offsetWidth,
+    behavior: "smooth",
+  });
+});
 
-  for (let i = startIndex; i < endIndex; i++) {
-    const post = blogPosts[i];
-
-    const postElement = document.createElement("div");
-    postElement.classList.add("post");
-    postElement.innerHTML = `
-        <h2>${post.title}</h2>
-        <p>${post.content}</p>
-      `;
-
-    slider.appendChild(postElement);
-  }
-};
-
-const handleSliderButtonClick = (direction) => {
-  const numSlides = Math.ceil(blogPosts.length / 4); // Calculate the number of slides
-
-  if (direction === "prev") {
-    currentSlide = (currentSlide - 1 + numSlides) % numSlides;
-  } else {
-    currentSlide = (currentSlide + 1) % numSlides;
-  }
-
-  showSlide();
-};
-
-// Attach event listeners to slider buttons
-const prevButton = document.getElementById("slider-prev");
-prevButton.addEventListener("click", () => handleSliderButtonClick("prev"));
-
-const nextButton = document.getElementById("slider-next");
-nextButton.addEventListener("click", () => handleSliderButtonClick("next"));
-
-// Call the function to display the latest blog posts
-showLatestBlogPosts();
+fetchBlogPosts();
