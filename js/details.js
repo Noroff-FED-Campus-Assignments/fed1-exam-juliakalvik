@@ -49,15 +49,25 @@ const fetchBlogPost = async () => {
       console.log("Gallery Photos:", galleryPhotos);
 
       blogpostGallery.innerHTML = "";
+      const photoUrls = [];
 
       for (const photo of galleryPhotos) {
         const imgElement = document.createElement("img");
-        imgElement.src = photo.thumbnails.full.url;
+        const photoUrl = photo.thumbnails.full.url;
+        imgElement.src = photoUrl;
         imgElement.alt = "Gallery Photo";
         imgElement.classList.add("gallery-photo");
 
+        imgElement.addEventListener("click", () => {
+          openImagePopup(photoUrl, galleryPhotos);
+        });
+
         blogpostGallery.appendChild(imgElement);
+
+        photoUrls.push(photoUrl);
       }
+
+      return photoUrls;
     } else {
       blogpostGallery.innerHTML = "";
     }
@@ -66,7 +76,62 @@ const fetchBlogPost = async () => {
   }
 };
 
-fetchBlogPost();
+let currentPhotoIndex = 0;
+let photoUrls = [];
+
+const openImagePopup = (imageUrl, galleryPhotos) => {
+  currentPhotoIndex = galleryPhotos.findIndex(
+    (photo) => photo.thumbnails.full.url === imageUrl
+  );
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+
+  const popupImage = document.createElement("img");
+  popupImage.src = imageUrl;
+  popupImage.classList.add("popup-img");
+
+  overlay.appendChild(popupImage);
+
+  const nextButton = document.createElement("button");
+  nextButton.classList.add("popup-next");
+  nextButton.innerHTML = "&rarr;";
+  nextButton.addEventListener("click", showNextPhoto);
+  overlay.appendChild(nextButton);
+
+  const prevButton = document.createElement("button");
+  prevButton.classList.add("popup-prev");
+  prevButton.innerHTML = "&larr;";
+  prevButton.addEventListener("click", showPrevPhoto);
+  overlay.appendChild(prevButton);
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      document.body.removeChild(overlay);
+    }
+  });
+
+  document.body.appendChild(overlay);
+};
+
+const showNextPhoto = () => {
+  currentPhotoIndex = (currentPhotoIndex + 1) % photoUrls.length;
+  const imageUrl = photoUrls[currentPhotoIndex];
+  const popupImage = document.querySelector(".popup-img");
+  popupImage.src = imageUrl;
+};
+
+const showPrevPhoto = () => {
+  currentPhotoIndex =
+    (currentPhotoIndex - 1 + photoUrls.length) % photoUrls.length;
+  const imageUrl = photoUrls[currentPhotoIndex];
+  const popupImage = document.querySelector(".popup-img");
+  popupImage.src = imageUrl;
+};
+
+fetchBlogPost().then((urls) => {
+  photoUrls = urls;
+});
 
 const commentForm = document.getElementById("comment-form");
 const commentsList = document.getElementById("comments-list");
@@ -91,10 +156,10 @@ function addComment(comment) {
   const commentElement = document.createElement("div");
   commentElement.classList.add("comment");
   commentElement.innerHTML = `
-    <h4>${comment.name}</h4>
-    <p>${comment.content}</p>
-    <hr>
-  `;
+      <h4>${comment.name}</h4>
+      <p>${comment.content}</p>
+      <hr>
+    `;
 
   commentsList.appendChild(commentElement);
 }

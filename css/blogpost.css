@@ -48,6 +48,7 @@
 
 .gallery img {
   width: 500px;
+  cursor: pointer;
 }
 
 .comments {
@@ -60,4 +61,43 @@
 
 .comments-h2 {
   margin-top: 50px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #29282895;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.popup-img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.popup-next,
+.popup-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.popup-next {
+  right: 10px;
+}
+
+.popup-prev {
+  left: 10px;
 }
