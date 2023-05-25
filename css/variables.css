@@ -89,10 +89,66 @@ hr {
   gap: 40px;
 }
 
-.footer {
+.socials-sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin-left: 3vh;
+  margin-top: 20vh;
+}
+
+.sidebar-icons:hover {
+  background-color: #7e896c40;
+}
+
+.sidebar-icons {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  margin: 5px;
+  border-radius: 16px;
+  padding: 3px;
+}
+
+.footer-icons {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 16px;
+  padding: 3px;
+  margin-bottom: 20px;
+}
+
+.footer-icons:hover {
+  background-color: #ffffff40;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
   background-color: #7e896c;
   color: #ffffff;
-  height: 100px;
+  font-family: "Telex";
+  text-align: left;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+.footer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 1050px) {
+  .socials-sidebar {
+    display: none;
+  }
 }
