@@ -88,3 +88,11 @@ hr {
   flex-wrap: wrap;
   gap: 40px;
 }
+
+.footer {
+  background-color: #7e896c;
+  color: #ffffff;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
