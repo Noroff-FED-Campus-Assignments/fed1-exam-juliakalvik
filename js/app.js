@@ -20,106 +20,125 @@ const truncateText = (text, limit) => {
   return words.length > limit ? `${truncated}...` : truncated;
 };
 
+let displayedPostsCount = 6;
+let totalPosts = 0;
+let allPosts = [];
+
 const fetchBlogPosts = async () => {
   try {
     const response = await fetch(tableUrl, { headers: headers });
     const results = await response.json();
     console.log(results);
 
+    totalPosts = results.records.length;
+    allPosts = results.records;
+
     const fetchedPostsElement = document.getElementById("fetched-posts-full");
     fetchedPostsElement.innerHTML = "";
 
-    results.records.forEach((post) => {
-      const postElement = document.createElement("div");
-      const photoUrl =
-        post.fields.Photo && Array.isArray(post.fields.Photo)
-          ? post.fields.Photo[0].thumbnails.full.url
-          : "";
-      postElement.classList.add("post");
-
-      const truncatedText = truncateText(post.fields.Text || "", 10);
-
-      postElement.addEventListener("click", () => {
-        const postId = post.id;
-        window.location.href = `blogpost.html?id=${postId}`;
-      });
-
-      if (post.fields.Title) {
-        const titleElement = document.createElement("h2");
-        titleElement.textContent = post.fields.Title;
-        postElement.appendChild(titleElement);
-      }
-
-      if (truncatedText) {
-        const textElement = document.createElement("p");
-        textElement.textContent = truncatedText;
-        postElement.appendChild(textElement);
-      }
-
-      if (photoUrl) {
-        const imageElement = document.createElement("img");
-        imageElement.src = photoUrl;
-        imageElement.alt = "Post Image";
-        postElement.appendChild(imageElement);
-      }
-
+    const displayedPosts = allPosts.slice(0, displayedPostsCount);
+    displayedPosts.forEach((post) => {
+      const postElement = createPostElement(post);
       fetchedPostsElement.appendChild(postElement);
     });
+
+    if (totalPosts > displayedPostsCount) {
+      const showMoreButton = document.getElementById("show-more-btn");
+      showMoreButton.style.display = "block";
+      showMoreButton.addEventListener("click", showMorePosts);
+    }
   } catch (error) {
     console.error(error);
   }
 };
 
-window.addEventListener("DOMContentLoaded", fetchBlogPosts);
+const createPostElement = (post) => {
+  const postElement = document.createElement("div");
+  const photoUrl =
+    post.fields.Photo && Array.isArray(post.fields.Photo)
+      ? post.fields.Photo[0].thumbnails.full.url
+      : "";
+  postElement.classList.add("post");
 
-/*
-const fetchBlogPosts = async () => {
-  const response = await fetch(tableUrl, { headers: headers });
-  const results = await response.json();
-  console.log(results);
-  return results;
+  const truncatedText = truncateText(post.fields.Text || "", 10);
+
+  postElement.addEventListener("click", () => {
+    const postId = post.id;
+    window.location.href = `blogpost.html?id=${postId}`;
+  });
+
+  if (post.fields.Title) {
+    const titleElement = document.createElement("h2");
+    titleElement.textContent = post.fields.Title;
+    postElement.appendChild(titleElement);
+  }
+
+  if (truncatedText) {
+    const textElement = document.createElement("p");
+    textElement.textContent = truncatedText;
+    postElement.appendChild(textElement);
+  }
+
+  if (photoUrl) {
+    const imageElement = document.createElement("img");
+    imageElement.src = photoUrl;
+    imageElement.alt = "Post Image";
+    postElement.appendChild(imageElement);
+  }
+
+  return postElement;
 };
 
-fetchBlogPosts();
-============================================
-Constants
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L66
-============================================
-*/
+const showMorePosts = () => {
+  displayedPostsCount += 6;
 
-// TODO: Get DOM elements from the DOM
+  const fetchedPostsElement = document.getElementById("fetched-posts-full");
 
-/*
-============================================
-DOM manipulation
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L89
-============================================
-*/
+  const displayedPosts = allPosts.slice(0, displayedPostsCount);
+  fetchedPostsElement.innerHTML = "";
+  displayedPosts.forEach((post) => {
+    const postElement = createPostElement(post);
+    fetchedPostsElement.appendChild(postElement);
+  });
 
-// TODO: Fetch and Render the list to the DOM
+  if (displayedPostsCount >= totalPosts) {
+    const showMoreButton = document.getElementById("show-more-btn");
+    showMoreButton.style.display = "none";
 
-// TODO: Create event listeners for the filters and the search
+    const showLessButton = document.getElementById("show-less-btn");
+    showLessButton.style.display = "block";
+    showLessButton.addEventListener("click", showLessPosts);
+  }
+};
+
+const showLessPosts = () => {
+  displayedPostsCount = 6;
+
+  const fetchedPostsElement = document.getElementById("fetched-posts-full");
+
+  const displayedPosts = allPosts.slice(0, displayedPostsCount);
+  fetchedPostsElement.innerHTML = "";
+  displayedPosts.forEach((post) => {
+    const postElement = createPostElement(post);
+    fetchedPostsElement.appendChild(postElement);
+  });
+
+  if (totalPosts > displayedPostsCount) {
+    const showLessButton = document.getElementById("show-less-btn");
+    showLessButton.style.display = "none";
+
+    const showMoreButton = document.getElementById("show-more-btn");
+    showMoreButton.style.display = "block";
+    showMoreButton.addEventListener("click", showMorePosts);
+  }
+};
+
+window.addEventListener("DOMContentLoaded", fetchBlogPosts);
 
 /**
  * TODO: Create an event listener to sort the list.
  * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/search-form.html#L91
  */
-
-/*
-============================================
-Data fectching
-@example: https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L104
-============================================
-*/
-
-// TODO: Fetch an array of objects from the API
-
-/*
-============================================
-Helper functions
-https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/games.html#L154
-============================================
-*/
 
 /**
  * TODO: Create a function to filter the list of item.
