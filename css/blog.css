@@ -57,6 +57,7 @@ h2 {
 #show-more-btn,
 #show-less-btn {
   display: none;
+  margin-top: 20px;
 }
 
 main {

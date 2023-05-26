@@ -95,6 +95,7 @@ hr {
   position: fixed;
   margin-left: 3vh;
   margin-top: 20vh;
+  z-index: 2;
 }
 
 .sidebar-icons:hover {

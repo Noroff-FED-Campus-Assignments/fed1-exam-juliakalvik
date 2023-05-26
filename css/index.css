@@ -2,14 +2,98 @@
 @import url("https://fonts.googleapis.com/css2?family=Telex&display=swap");
 
 .carousel {
-  background-image: url("../images/CAROUSEL1resize.png");
-  background-color: #cccccc;
-  padding-top: 300px;
-  padding-bottom: 300px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: multiply;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.carousel-slider {
+  display: flex;
+  animation: slide 38s infinite;
+  animation-delay: -8.5s;
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  color: white;
+  font-size: 32px;
+}
+
+.carousel-h1 {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
+.h1-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  12.5% {
+    transform: translateX(0);
+  }
+  14.28% {
+    transform: translateX(-100%);
+  }
+  26.78% {
+    transform: translateX(-100%);
+  }
+  28.57% {
+    transform: translateX(-200%);
+  }
+  41.07% {
+    transform: translateX(-200%);
+  }
+  42.85% {
+    transform: translateX(-300%);
+  }
+  55.35% {
+    transform: translateX(-300%);
+  }
+  57.14% {
+    transform: translateX(-400%);
+  }
+  69.64% {
+    transform: translateX(-400%);
+  }
+  71.42% {
+    transform: translateX(-500%);
+  }
+  83.92% {
+    transform: translateX(-500%);
+  }
+  85.71% {
+    transform: translateX(-600%);
+  }
+  98.21% {
+    transform: translateX(-600%);
+  }
+  100% {
+    transform: translateX(-700%);
+  }
+}
+
+.carousel img {
+  width: 100%;
 }
 
 .intro-section {
