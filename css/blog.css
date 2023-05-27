@@ -32,6 +32,7 @@ h2 {
   flex-direction: column;
   border-radius: 2px;
   margin: 30px;
+  cursor: pointer;
 }
 
 .post img {

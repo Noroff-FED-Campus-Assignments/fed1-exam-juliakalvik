@@ -17,6 +17,7 @@ const headers = {
 const sliderWrapper = document.getElementById("slider-wrapper");
 const prevButton = document.getElementById("slider-prev");
 const nextButton = document.getElementById("slider-next");
+const loader = document.getElementById("loader");
 
 const postsPerPage = 4;
 let currentPage = 1;
@@ -100,12 +101,15 @@ nextButton.addEventListener("click", function () {
 
 const fetchBlogPosts = async () => {
   try {
+    loader.style.display = "block";
+
     const response = await fetch(tableUrl, { headers: headers });
     const results = await response.json();
     console.log(results);
 
     postItems = results.records;
 
+    loader.style.display = "none";
     renderPosts();
   } catch (error) {
     console.error(error);

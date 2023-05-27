@@ -24,8 +24,23 @@ let displayedPostsCount = 6;
 let totalPosts = 0;
 let allPosts = [];
 
+const loader = document.getElementById("loader");
+const mainContent = document.querySelector("main");
+
+const showLoader = () => {
+  loader.style.display = "block";
+  mainContent.style.display = "none";
+};
+
+const hideLoader = () => {
+  loader.style.display = "none";
+  mainContent.style.display = "block";
+};
+
 const fetchBlogPosts = async () => {
   try {
+    showLoader();
+
     const response = await fetch(tableUrl, { headers: headers });
     const results = await response.json();
     console.log(results);
@@ -47,8 +62,11 @@ const fetchBlogPosts = async () => {
       showMoreButton.style.display = "block";
       showMoreButton.addEventListener("click", showMorePosts);
     }
+
+    hideLoader();
   } catch (error) {
     console.error(error);
+    hideLoader();
   }
 };
 
@@ -134,21 +152,3 @@ const showLessPosts = () => {
 };
 
 window.addEventListener("DOMContentLoaded", fetchBlogPosts);
-
-/**
- * TODO: Create an event listener to sort the list.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/search-form.html#L91
- */
-
-/**
- * TODO: Create a function to filter the list of item.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/examples/search-form.html#L135
- * @param {item} item The object with properties from the fetched JSON data.
- * @param {searchTerm} searchTerm The string used to check if the object title contains it.
- */
-
-/**
- * TODO: Create a function to create a DOM element.
- * @example https://github.com/S3ak/fed-javascript1-api-calls/blob/main/src/js/detail.js#L36
- * @param {item} item The object with properties from the fetched JSON data.
- */
