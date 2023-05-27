@@ -163,3 +163,37 @@ h1 {
 .socials-text {
   text-align: center;
 }
+.slider {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  justify-content: center;
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  width: 300px;
+}
+
+.slider-controls {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.slider-button {
+  margin: 0 5px;
+}
+
+#slider-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.latest-blog-posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}

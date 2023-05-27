@@ -14,17 +14,89 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-const slider = document.getElementById("slider");
 const sliderWrapper = document.getElementById("slider-wrapper");
 const prevButton = document.getElementById("slider-prev");
 const nextButton = document.getElementById("slider-next");
 
+const postsPerPage = 4;
+let currentPage = 1;
 let postItems = [];
+
 const truncateText = (text, limit) => {
   const words = text.split(" ");
   const truncated = words.slice(0, limit).join(" ");
   return words.length > limit ? `${truncated}...` : truncated;
 };
+
+const createPostElement = (post) => {
+  const postElement = document.createElement("div");
+  const photoUrl =
+    post.fields.Photo && Array.isArray(post.fields.Photo)
+      ? post.fields.Photo[0].thumbnails.full.url
+      : "";
+  postElement.classList.add("post");
+
+  const truncatedText = truncateText(post.fields.Text || "", 10);
+
+  if (post.fields && post.fields.Title) {
+    const titleElement = document.createElement("h2");
+    titleElement.textContent = post.fields.Title;
+    postElement.appendChild(titleElement);
+  }
+
+  if (truncatedText) {
+    const textElement = document.createElement("p");
+    textElement.textContent = truncatedText;
+    postElement.appendChild(textElement);
+  }
+
+  if (photoUrl) {
+    const imageElement = document.createElement("img");
+    imageElement.src = photoUrl;
+    imageElement.alt = "Post Image";
+    postElement.appendChild(imageElement);
+  }
+
+  return postElement;
+};
+
+const renderPosts = () => {
+  sliderWrapper.innerHTML = "";
+
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  const slicedPosts = postItems.slice(startIndex, endIndex);
+
+  slicedPosts.forEach((post) => {
+    const postWrapper = document.createElement("div");
+    postWrapper.classList.add("slider-item");
+
+    const postElement = createPostElement(post);
+
+    postElement.addEventListener("click", () => {
+      const postId = post.id;
+      window.location.href = `blogpost.html?id=${postId}`;
+    });
+
+    postWrapper.appendChild(postElement);
+    sliderWrapper.appendChild(postWrapper);
+  });
+};
+
+prevButton.addEventListener("click", function () {
+  if (currentPage > 1) {
+    currentPage--;
+    renderPosts();
+  }
+});
+
+nextButton.addEventListener("click", function () {
+  const maxPages = Math.ceil(postItems.length / postsPerPage);
+  if (currentPage < maxPages) {
+    currentPage++;
+    renderPosts();
+  }
+});
 
 const fetchBlogPosts = async () => {
   try {
@@ -32,74 +104,12 @@ const fetchBlogPosts = async () => {
     const results = await response.json();
     console.log(results);
 
-    postItems = results.records.map((post) => {
-      const postElement = document.createElement("div");
-      const photoUrl =
-        post.fields.Photo && Array.isArray(post.fields.Photo)
-          ? post.fields.Photo[0].thumbnails.full.url
-          : "";
-      postElement.classList.add("post");
-
-      const truncatedText = truncateText(post.fields.Text || "", 10);
-
-      postElement.addEventListener("click", () => {
-        const postId = post.id;
-        window.location.href = `blogpost.html?postId=${postId}`;
-      });
-
-      if (post.fields.Title) {
-        const titleElement = document.createElement("h2");
-        titleElement.textContent = post.fields.Title;
-        postElement.appendChild(titleElement);
-      }
-
-      if (truncatedText) {
-        const textElement = document.createElement("p");
-        textElement.textContent = truncatedText;
-        postElement.appendChild(textElement);
-      }
-
-      if (photoUrl) {
-        const imageElement = document.createElement("img");
-        imageElement.src = photoUrl;
-        imageElement.alt = "Post Image";
-        postElement.appendChild(imageElement);
-      }
-
-      return postElement;
-    });
+    postItems = results.records;
 
     renderPosts();
   } catch (error) {
     console.error(error);
   }
 };
-
-const renderPosts = () => {
-  sliderWrapper.innerHTML = "";
-
-  const visiblePosts = postItems.slice(0, 3);
-  visiblePosts.forEach((post) => {
-    const postWrapper = document.createElement("div");
-    postWrapper.classList.add("slider-item");
-
-    postWrapper.appendChild(post.cloneNode(true));
-    sliderWrapper.appendChild(postWrapper);
-  });
-};
-
-prevButton.addEventListener("click", function () {
-  slider.scrollBy({
-    left: -slider.offsetWidth,
-    behavior: "smooth",
-  });
-});
-
-nextButton.addEventListener("click", function () {
-  slider.scrollBy({
-    left: slider.offsetWidth,
-    behavior: "smooth",
-  });
-});
 
 fetchBlogPosts();
