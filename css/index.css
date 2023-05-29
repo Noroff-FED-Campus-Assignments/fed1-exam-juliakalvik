@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Telex&display=swap");
 
-.body {
+body {
   width: 100%;
 }
 
@@ -47,6 +47,10 @@ h1 {
   align-items: center;
   height: 100%;
   width: 100%;
+}
+
+.intro-section p {
+  text-align: left;
 }
 
 @keyframes slide {
