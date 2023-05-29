@@ -95,17 +95,22 @@
 
     <section class="blogposts-full-list">
       <div class="filter">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Search blog posts..."
-        />
-        <label for="sort-select">Sort By:</label>
-        <select id="sort-select">
-          <option value="select">--select--</option>
-          <option value="asc">A-Z</option>
-          <option value="desc">Z-A</option>
-        </select>
+        <div class="search">
+          <label>Search:</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search blog posts..."
+          />
+        </div>
+        <div class="sortby">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select">
+            <option value="select">--please select--</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+          </select>
+        </div>
       </div>
 
       <div id="fetched-posts-full"></div>
