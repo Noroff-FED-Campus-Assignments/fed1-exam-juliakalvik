@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Telex&display=swap");
 
+.body {
+  width: 100%;
+}
+
 .carousel {
   width: 100%;
   height: auto;
