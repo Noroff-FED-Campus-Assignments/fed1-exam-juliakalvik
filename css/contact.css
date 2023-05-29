@@ -97,6 +97,14 @@ p {
   margin-left: 2rem;
 }
 
+.error-text {
+  display: none;
+  color: red;
+}
+.error {
+  border: 1px solid red;
+}
+
 .latest-blogposts {
   display: flex;
   flex-direction: column;

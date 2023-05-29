@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="css/latest-blogposts.css" />
     <link rel="stylesheet" href="css/blog.css" />
     <script defer type="module" src="/js/latest-blogposts.js"></script>
+    <script defer type="module" src="/js/contact.js"></script>
 
     <title>💍 WEDDING PHOTOGRAPHER</title>
   </head>
@@ -183,7 +184,7 @@
     </div>
     <section class="contactform-parent">
       <div class="form">
-        <form action="contact-submitted.html">
+        <form id="contact-form">
           <label for="fname">Full name</label>
           <input
             type="text"
@@ -192,6 +193,7 @@
             placeholder="Your full name here"
             required
           />
+          <span id="fullname-error" class="error-text"></span>
 
           <label for="lname">E-mail address</label>
           <input
@@ -200,6 +202,7 @@
             name="emailaddress"
             placeholder="Your e-mail here"
           />
+          <span id="email-error" class="error-text"></span>
 
           <label for="how">How did you find me?</label>
           <select id="how" name="how" required>
@@ -219,6 +222,7 @@
             style="height: 200px"
             required
           ></textarea>
+          <span id="subject-error" class="error-text"></span>
 
           <input type="submit" value="SEND" />
         </form>
