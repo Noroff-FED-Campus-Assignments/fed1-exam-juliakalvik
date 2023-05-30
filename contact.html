@@ -23,8 +23,11 @@
       <link rel="stylesheet" href="css/navbar.css" />
       <link rel="stylesheet" href="css/contact.css" />
       <link rel="stylesheet" href="css/variables.css" />
+      <link rel="stylesheet" href="css/index.css" />
+      <link rel="stylesheet" href="css/blog.css" />
       <script defer type="module" src="/js/contact.js"></script>
       <script defer type="module" src="/js/navbar.js"></script>
+      <script defer type="module" src="/js/latest-blogposts.js"></script>
       <title>📸 CONTACT Julia Kalvik</title>
     </head>
     <body>
@@ -124,6 +127,19 @@
                 <img src="assets/Envelope.png"/>
                 <p>julia@kalvikfoto.com</p>
               </div>
+        </div>
+      </section>
+      <hr>
+
+      <section class="latest-blog-posts">
+        <h2>Latest Blog Posts</h2>
+        <div class="loader" id="loader"></div>
+        <div class="slider">
+          <div id="slider-wrapper" class="slider-wrapper"></div>
+        </div>
+        <div class="slider-controls">
+          <button id="slider-prev" class="slider-button">Previous</button>
+          <button id="slider-next" class="slider-button">Next</button>
         </div>
       </section>
       
