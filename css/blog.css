@@ -45,6 +45,7 @@ h2 {
   padding: 10px;
   font-size: 14px;
   line-height: 18px;
+  text-align: center;
 }
 
 #fetched-posts-full {
