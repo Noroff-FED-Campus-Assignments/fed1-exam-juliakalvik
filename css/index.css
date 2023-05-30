@@ -51,6 +51,7 @@ h1 {
 
 .intro-section p {
   text-align: left;
+  font-size: 16px;
 }
 
 @keyframes slide {
@@ -129,12 +130,6 @@ h1 {
   align-items: center;
 }
 
-.wedding-video {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .reviews {
   text-align: center;
 }
@@ -160,17 +155,20 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .instagram {
   display: flex;
-  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 
 .socials-text {
   text-align: center;
 }
+
 .slider {
   display: flex;
   overflow-x: scroll;
@@ -205,6 +203,94 @@ h1 {
   justify-content: center;
   width: 100%;
 }
-#instagram3 {
-  display: none;
+
+.instagram-media {
+  display: flex;
+  flex-direction: column;
+}
+
+.instagram-wrapper {
+  flex-basis: 280px;
+}
+
+.instagram-wrapper a {
+  background: #ffffff;
+  line-height: 0;
+  padding: 0 0;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.instagram-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image {
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  height: 40px;
+  margin-bottom: 6px;
+  width: 40px;
+}
+
+.profile-details {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  height: 28px;
+  margin-bottom: 12px;
+  width: 100px;
+}
+
+.profile-username {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  flex-grow: 0;
+  height: 14px;
+  margin-bottom: 6px;
+  width: 100px;
+}
+
+.profile-location {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  flex-grow: 0;
+  height: 14px;
+  width: 60px;
+}
+
+.instagram-image {
+  padding-bottom: 100%;
+  background-color: #000;
+  margin-bottom: 12px;
+}
+
+.instagram-caption {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  height: 16px;
+  width: 100%;
+}
+
+.socials-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#instagram {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .instagram {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
