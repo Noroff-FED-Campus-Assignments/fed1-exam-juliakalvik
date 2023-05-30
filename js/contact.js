@@ -45,7 +45,6 @@ subjectInput.addEventListener("input", () => {
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  // Perform form validation
   const fullName = fullNameInput.value.trim();
   const email = emailInput.value.trim();
   const subject = subjectInput.value.trim();
