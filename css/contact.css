@@ -42,6 +42,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #7e896c;
+  color: #fff;
 }
 
 form {
@@ -82,11 +83,6 @@ form {
   height: 452px;
   background-color: #7e896c80;
 }
-
-/*.contact-info > h2,
-p {
-  color: #fff;
-}*/
 
 .location,
 .phone,
