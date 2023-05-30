@@ -43,8 +43,6 @@ li {
 }
 
 .active-link a {
-  background-color: #7e896c;
-  color: #ffffff;
-  border-radius: 15px;
-  padding: 5px;
+  color: #7e896c;
+  text-decoration: underline;
 }
