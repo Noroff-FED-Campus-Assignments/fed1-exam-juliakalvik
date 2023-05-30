@@ -120,6 +120,15 @@
   align-items: center;
   height: 100%;
   width: 100%;
+  font-size: 6vh;
+  margin-top: 0;
+}
+
+.post-title-flex {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -129,4 +138,5 @@ h1 {
   z-index: 1;
   color: white;
   font-size: 32px;
+  inset: 0px;
 }
