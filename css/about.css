@@ -9,6 +9,11 @@
 
 .about-text {
   width: 400px;
+  padding: 15px;
+}
+
+.about-h2 {
+  padding: 15px;
 }
 
 .portrait {
