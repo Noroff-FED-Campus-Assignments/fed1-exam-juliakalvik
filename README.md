@@ -28,7 +28,54 @@ YOu can update your deployment pipeling by editing the [vercel.json](https://ver
 
 ## Report
 
-_ADD_YOUR_REPORT_HERE_
+Introduction:
+For my semester project, I aimed to create a timeless and clean design for my wedding photography website. Drawing inspiration from fellow photographers, I explored websites of peers and experienced professionals. The green color palette and sidebar from a Parisian restaurant's site intrigued me. Learning from the limitations of my current outdated website, I made design choices in line with the classic wedding photographer style. Opting for simplicity, I carefully selected a color palette with fewer primary colors for a cohesive design. Tenor Sans and Telex fonts complemented the theme with their classy and timeless appearance. User feedback prompted me to include the "latest blogposts" section on multiple pages, enhancing user experience. Consistent button styles and visual cues ensure a user-friendly interface. All the photos used in the project are my own, with client consent. This project showcases my skills in coding, design, and photography.
+
+Research:
+I started this project off with an idea of a simple, clean design. I knew I wanted to make something timeless for my wedding photography. I did my research by visiting other successful wedding photographers web sites, mostly photographers my age in Norway. That way I learned how other like minded professionals have designed their sites for dragging most traffic and landing most deals possible. I noticed that most of them did not have a blog included on their web site, but photographers that are a little older than me did. So I included photographers age 25 - 50. Of course I got some inspiration from the web sites I visited, but I actually got the most inspired by this restaurant in Paris’ website that I randomly came accross: monsieurbleu-restaurant.com. I fell for the green color and the use of a sidebar for social media-links. 
+
+I also used my current photography website for inspiration, or more as a «what not to do» reminder. My current site is 4-5 years old and has not been updated in a very long time. Based on feedback I already have gotten on that old page, I already know what not to do for this project. 
+
+Design choices:
+For this specific project, I really wanted to create something using my skills in photography. I already had a vision in mind, did some research to add to that vision, and got to work. My design choices are very much based on what I see as «classic wedding photographer» design for a website. Meaning a clean design, trying not to include too many elements (which is not always easy). As you can tell from my Figma-design file, I started my lowfidility sketches including video, for example. I even asked a couple I photographed 13th of May if I could film short clips of them during their wedding day to use for my exam (which I indeed did). But I ended up deciding that adding a video on my index page, in addition to the automatic header slideshow and latest blogposts section, that that might just be a little too much. 
+
+Color palette:
+When it comes to choice of color palette, I started off with debating whether or not to include pink, purple, blue or nude/beige tones. I used coolors.co to generate some color palettes. I had already decided that I wanted that green color from Monsieur Bleu, and figured that it might have been too much color if I would add another primary color. I really wanted to improve my design skills from my earlier projects, and based on the previous feedback I have gotten, I figured less colors would make the overall design much better and continuous. 
+
+Fonts:
+Same goes for fonts. I found two great fonts for a wedding photography blog/website, Tenor Sans and Telex, and stuck to these two. What I like about them, especially Tenor Sans, is that classy timeless look that goes really well with the theme for my website. I also used letter- and word spacing some places to achieve a «open» feeling, for example for my h1’s and h2’s.
+
+Coding:
+I feel like I have improved a lot when it comes to simple HTML and CSS, compared to where I started. I still struggle a bit with javascript, but I am learning more and get better every day. For this specific project I had to google a lot to figure out how to write different javascript functions properly, and I also got some help from my classmates.
+
+Backend:
+For backend/storing my data I used Airtable for the first time. Airtable is in my opinion really effective and easy to use.
+
+Feedback/hotjar/UX:
+After viewing how my mom, friends and boyfriend interacted with my website, I decided I wanted to add the «latest blogposts» section to more pages than just the index page. This was also my initial thought, but I thought it might be more like noise when displayed more than one place. I quickly understood that that was not the case. I did some very simple interviews with all the people that had visited my web page, asking what they thought about adding that «last blogposts» section to more pages. Almost all of them agreed on that that would be a smart user experience choice, so I did. 
+
+UI:
+Some active design choices I made to make sure the user interface is good, is to keep all buttons in the same category the same style. I have two sets of buttons: one very basic for navigating through blogposts, submitting form message and comments, and for my socials section (main button) - and one for my socials in the sidebar and footer. These are more like icons/links. I wanted the users to have easy access to my socials, which I think makes sense given the fact that this is supposed to be a blog website. That’s why I decided to include the socials sidebar in my design. I also made it clear my latest blogposts (and blogposts on the blog page) is clickable by adding the pointer cursor. The hover effect on my buttons and in the navigation bar also indicates that they are clickable. The subtle underline and change of color for the page you are currently on (except the index page), also tells the user where they currently are. 
+
+Photos:
+All photos used for this project are my own work, used with consent from my clients.
+The photo of me is taken by my very talented friend and colleague Aurora Torres.
+
+Conclusion:
+For this semester project, I wanted to create a timeless and clean design for my wedding photography website. Researching other photographers, I found inspiration from both my peers and older professionals. The green color scheme and sidebar from a Parisian restaurant's website caught my attention. Taking feedback from my outdated website, I made design choices aligned with the classic wedding photographer style. I opted for a minimalistic approach and carefully selected a color palette with fewer primary colors for a cohesive design. Tenor Sans and Telex fonts were chosen for their classy and timeless look. While I've improved in HTML and CSS, JavaScript is still a bit of a challenge. User feedback led me to include the "latest blogposts" section on multiple pages, and I focused on a user-friendly interface by maintaining consistent button styles and visual cues. All the photos used were my own, obtained with client consent. I hope this project aimed to showcase both my coding, design and photography skills.
+
+Refeerences:
+Photos:
+All photos used for this project are my own work, used with consent from my clients.
+The photo of me is taken by my very talented friend and colleague Aurora Torres.
+
+Other elements:
+The icons are all Phosphor Icons from Figma. Fonts are imported from Google Fonts. The logo in the navigation bar is created by me.
+
+
+
+
+
 
 ## Getting Started
 
@@ -157,5 +204,5 @@ Make sure you go through this checklist before submitting your project to Moodle
 
 ## Authors
 
-- _YOURE_NAME_ (@_your_github_username_)
+- Julia Kalvik (Julia Kalvik)
 - Monde Sineke (@S3ak)
