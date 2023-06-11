@@ -1,0 +1,143 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.blogpost-content img {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.blogpost-content h2 {
+  display: flex;
+  position: absolute;
+  justify-content: center center;
+  font-size: 4rem;
+  color: #fff;
+}
+
+.blogpost-content p {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  flex-direction: column;
+  column-count: 2;
+  flex-wrap: wrap;
+  column-width: 200px;
+  column-gap: 80px;
+  font-size: 16px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.blogpost-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 500px;
+  cursor: pointer;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.comments-h2 {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #29282895;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.popup-img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.popup-next,
+.popup-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.popup-next {
+  right: 10px;
+}
+
+.popup-prev {
+  left: 10px;
+}
+
+#blogpost-photo img {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+#blogpost-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 6vh;
+  margin-top: 0;
+}
+
+.post-title-flex {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  color: white;
+  font-size: 32px;
+  inset: 0px;
+}

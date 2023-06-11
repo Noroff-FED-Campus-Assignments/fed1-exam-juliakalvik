@@ -1,0 +1,87 @@
+.about {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.about-text {
+  width: 400px;
+  padding: 15px;
+}
+
+.about-p {
+  text-align: left;
+}
+
+.about-h2 {
+  padding: 15px;
+}
+
+.portrait {
+  width: 500px;
+  margin-top: 2rem;
+}
+
+.contact-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.map-and-keywords {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.big {
+  width: 15%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  margin-left: 5px;
+}
+
+.location,
+.camera,
+.tag,
+.phone,
+.envelope {
+  display: flex;
+  width: 300px;
+  gap: 1rem;
+}
+
+.phone,
+.envelope {
+  margin-left: 8px;
+}
+
+.camera > img {
+  width: 50px;
+}
+
+.tag > img {
+  width: 60px;
+}
+
+.phone > img {
+  width: 40px;
+}
+
+.latest-blogposts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

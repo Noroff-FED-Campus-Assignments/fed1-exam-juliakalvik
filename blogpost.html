@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 3510519, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blogpost detail page" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, JavaScript, wedding photography, weddings, wedding photographer, photographer, photography, blogpost page, blog, blogposts, wedding blog"
+    />
+    <meta name="author" content="Julia Kalvik" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/blogpost.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <script defer type="module" src="/js/details.js"></script>
+    <title>💍 WEDDING PHOTOGRAPHER</title>
+  </head>
+  <body>
+    <section class="navbar">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html"><img src="assets/Logo.png" class="logo" /></a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">ABOUT</a>
+        </li>
+        <li class="nav-item">
+          <a href="blog.html" class="nav-link">BLOG</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">CONTACT</a>
+        </li>
+      </ul>
+    </section>
+
+    <main>
+      <section class="blogpost">
+        <div class="blogpost-content">
+          <div class="post-title-flex">
+            <h2 id="blogpost-title"></h2>
+            <img id="blogpost-photo" alt="Post header image" />
+          </div>
+          <p id="blogpost-content"></p>
+          <div id="blogpost-gallery" class="gallery"></div>
+        </div>
+      </section>
+    </main>
+    <hr />
+    <section class="comments">
+      <h2 class="comments-h2">LEAVE A COMMENT BELOW</h2>
+      <form id="comment-form">
+        <input type="text" id="comment-name" placeholder="Your Name" required />
+        <textarea
+          id="comment-content"
+          placeholder="Your Comment"
+          required
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="comments-list"></div>
+    </section>
+    <hr />
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="info-footer">
+          <p>PHOTOGRAPHER JULIA KALVIK ON SOCIAL MEDIA:</p>
+        </div>
+        <div class="socials-footer">
+          <a href="https://www.instagram.com/juliakalvik/" target="blank"
+            ><img
+              src="assets/InstagramLogo.png"
+              class="footer-icons"
+              alt="Instagram logo"
+          /></a>
+          <a href="https://www.facebook.com/fotografjuliakalvik" target="blank"
+            ><img
+              src="assets/FacebookLogo.png"
+              class="footer-icons"
+              alt="Facebook logo"
+          /></a>
+          <a href="https://www.tiktok.com/@deterjulia" target="blank"
+            ><img
+              src="assets/TiktokLogo.png"
+              class="footer-icons"
+              alt="TikTok logo"
+          /></a>
+          <a href="blog.html" target="blank"
+            ><img
+              src="assets/Images.png"
+              class="footer-icons"
+              alt="Images icon"
+          /></a>
+          <p>E-MAIL: julia@kalvikfoto.com | PHONE: 004798767493</p>
+          <p>Copyright 2023</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
